@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+}
+
+header{
+    background:#0077cc;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+header input{
+    margin-top:15px;
+    padding:10px;
+    width:300px;
+    border:none;
+    border-radius:5px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.job-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.job-card:hover{
+    transform:scale(1.05);
+}
+
+.job-card h2{
+    color:#0077cc;
+    margin-bottom:10px;
+}
+
+.job-card p{
+    margin:8px 0;
+}
+
+button{
+    margin-top:15px;
+    width:100%;
+    padding:10px;
+    background:#28a745;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#218838;
+}
+
+footer{
+    text-align:center;
+    background:#0077cc;
+    color:white;
+    padding:15px;
+    margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Job Portal</h1>
+<p>Find Your Dream Job</p>
+
+<input type="text" id="search" placeholder="Search Jobs...">
+</header>
+
+<div class="container">
+
+<div class="job-card">
+<h2>Frontend Developer</h2>
+<p><b>Company:</b> ABC Technologies</p>
+<p><b>Location:</b> Hyderabad</p>
+<p><b>Salary:</b> ₹5 LPA</p>
+<button onclick="applyJob('Frontend Developer')">Apply Now</button>
+</div>
+
+<div class="job-card">
+<h2>Python Developer</h2>
+<p><b>Company:</b> XYZ Solutions</p>
+<p><b>Location:</b> Bangalore</p>
+<p><b>Salary:</b> ₹6 LPA</p>
+<button onclick="applyJob('Python Developer')">Apply Now</button>
+</div>
+
+<div class="job-card">
+<h2>Java Developer</h2>
+<p><b>Company:</b> Infosys</p>
+<p><b>Location:</b> Pune</p>
+<p><b>Salary:</b> ₹5.5 LPA</p>
+<button onclick="applyJob('Java Developer')">Apply Now</button>
+</div>
+
+<div class="job-card">
+<h2>UI/UX Designer</h2>
+<p><b>Company:</b> Creative Minds</p>
+<p><b>Location:</b> Chennai</p>
+<p><b>Salary:</b> ₹4.8 LPA</p>
+<button onclick="applyJob('UI/UX Designer')">Apply Now</button>
+</div>
+
+<div class="job-card">
+<h2>Data Analyst</h2>
+<p><b>Company:</b> Tech Solutions</p>
+<p><b>Location:</b> Hyderabad</p>
+<p><b>Salary:</b> ₹5.2 LPA</p>
+<button onclick="applyJob('Data Analyst')">Apply Now</button>
+</div>
+
+<div class="job-card">
+<h2>Software Tester</h2>
+<p><b>Company:</b> Wipro</p>
+<p><b>Location:</b> Noida</p>
+<p><b>Salary:</b> ₹4.5 LPA</p>
+<button onclick="applyJob('Software Tester')">Apply Now</button>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Job Portal | All Rights Reserved</p>
+</footer>
+
+<script>
+
+function applyJob(job){
+    alert("Application submitted successfully for " + job);
+}
+
+let search=document.getElementById("search");
+
+search.addEventListener("keyup",function(){
+
+let filter=search.value.toLowerCase();
+
+let jobs=document.querySelectorAll(".job-card");
+
+jobs.forEach(function(job){
+
+let text=job.innerText.toLowerCase();
+
+if(text.includes(filter)){
+job.style.display="block";
+}
+else{
+job.style.display="none";
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
